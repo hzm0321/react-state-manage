@@ -1,19 +1,26 @@
 import React from 'react';
-import {PageHeader, Button} from "antd";
-import {RouteComponentProps} from 'react-router';
+import { PageHeader, Button } from 'antd';
+import { RouteComponentProps } from 'react-router';
 
-interface Props extends RouteComponentProps {
-}
+interface Props extends RouteComponentProps {}
 
 const routerList = [
   {
-    key: 'observable'
-  }
-]
+    key: 'observable',
+  },
+  {
+    key: 'computed',
+  },
+  {
+    key: 'action',
+  },
+  {
+    key: 'react',
+  },
+];
 
-const Mobx: React.FC<Props> = ({history}) => {
+const Mobx: React.FC<Props> = ({ history }) => {
   const routerPrefix = '/mobx';
-
 
   return (
     <div>
@@ -22,7 +29,11 @@ const Mobx: React.FC<Props> = ({history}) => {
         title="返回"
         subTitle="mobx"
       />
-      {routerList.map(({key}) => <Button type="primary" href={`${routerPrefix}/${key}`}>{key}</Button>)}
+      {routerList.map(({ key }) => (
+        <Button type="primary" href={`${routerPrefix}/${key}`}>
+          {key}
+        </Button>
+      ))}
     </div>
   );
 };
